@@ -11,10 +11,12 @@ ratioList = [[90,10],[80,20],[60,40],[40,60]]
 
 for ratio in ratioList:
     dataCenter.separateIntoRatioAccording(ratio)
-    machine = Machine(ratio,8)
+    machine = Machine(ratio,4)
     machine.train()
     machine.test()
     machine.plotConfusionMatrix()
     machine.drawDecisionTree()
+
+    print('\n\n')
 
 

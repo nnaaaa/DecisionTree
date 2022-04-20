@@ -7,16 +7,6 @@ class FourConnectState:
         self.state = list(map(lambda cell: FourConnectState.charToNum(cell), cells))
         self.result = result[:-1]
 
-    def show(self):
-        for i in range(0, 6):
-            row = []
-            for j in range(0, 7):
-                index = 6*(j+1) - i - 1
-                row.append(FourConnectState.numToChar(self.state[index]))
-            print(row)
-
-        print(self.result)
-
     @staticmethod
     def charToNum(char):
         if char == 'b':

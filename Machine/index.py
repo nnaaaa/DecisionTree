@@ -1,5 +1,4 @@
 from typing import List
-
 import graphviz
 from matplotlib import pyplot as plt
 from State.index import FourConnectState
@@ -7,7 +6,7 @@ from DataCenter.index import DataCenter
 from sklearn import tree,metrics
 
 class Machine:
-    def __init__(self,ratioTrainTest=[90,10],maxDepth = 2) -> None:
+    def __init__(self,ratioTrainTest=[90,10],maxDepth = None) -> None:
         self.decistionTree = None
         self.ratioString = ''
         self.ratio = ratioTrainTest
@@ -28,7 +27,7 @@ class Machine:
             trainingStates.append(state)
         X = list(map(lambda state: state.state, trainingStates))
         Y = list(map(lambda state: state.result, trainingStates))
-        self.decisionTree = tree.DecisionTreeClassifier(criterion="entropy",max_depth=self.maxDepth).fit(X, Y)
+        self.decisionTree = tree.DecisionTreeClassifier(criterion="gini",max_depth=self.maxDepth).fit(X, Y)
         self.maxDepth = self.decisionTree.tree_.max_depth
         print('Max depth: ', self.maxDepth)
         
