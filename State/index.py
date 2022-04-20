@@ -5,7 +5,7 @@ class FourConnectState:
     def __init__(self, state:str,result:str):
         cells = state[:-2].split(',')
         self.state = list(map(lambda cell: FourConnectState.charToNum(cell), cells))
-        self.result = result
+        self.result = result[:-1]
 
     def show(self):
         for i in range(0, 6):
