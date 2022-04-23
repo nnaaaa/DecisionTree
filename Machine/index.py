@@ -1,6 +1,6 @@
 from typing import List
 import graphviz
-from matplotlib import pyplot as plt
+from matplotlib import pyplot as plot
 from State.index import FourConnectState
 from DataCenter.index import DataCenter
 from sklearn import tree,metrics
@@ -17,8 +17,8 @@ class Machine:
     def train(self):
         self.ratioString = str(self.ratio[0]) + "_" + str(self.ratio[1])
 
-        trainData = DataCenter.readFromFile("DataCenter/feature_train_" + self.ratioString + ".dat")
-        labelTrainData = DataCenter.readFromFile("DataCenter/label_train_" + self.ratioString + ".dat")
+        trainData = DataCenter.readFromFile(DataCenter.textPath + "feature_train_" + self.ratioString + ".dat")
+        labelTrainData = DataCenter.readFromFile(DataCenter.textPath + "label_train_" + self.ratioString + ".dat")
         
         print("Training Stage")
         trainingStates:List[FourConnectState] = []
@@ -33,8 +33,8 @@ class Machine:
         
 
     def test(self):
-        testData = DataCenter.readFromFile("DataCenter/feature_test_" + self.ratioString + ".dat")
-        labelTestData = DataCenter.readFromFile("DataCenter/label_test_" + self.ratioString + ".dat")
+        testData = DataCenter.readFromFile(DataCenter.textPath + "feature_test_" + self.ratioString + ".dat")
+        labelTestData = DataCenter.readFromFile(DataCenter.textPath + "label_test_" + self.ratioString + ".dat")
         print("Testing Stage")
         testingStates:List[FourConnectState] = []
         for i in range(len(testData)):
@@ -52,7 +52,7 @@ class Machine:
     def plotConfusionMatrix(self):
         print('Plot confusion matrix')
         metrics.ConfusionMatrixDisplay.from_predictions(self.Y_actual, self.Y_predict, labels=self.decisionTree.classes_)
-        plt.savefig('DataCenter/confusion_matrix_'+self.ratioString)
+        plot.savefig(DataCenter.matrixPath + 'confusion_matrix_'+self.ratioString)
         print(metrics.classification_report(self.Y_actual, self.Y_predict, labels=self.decisionTree.classes_,zero_division=0))
 
     def drawDecisionTree(self):
@@ -66,4 +66,4 @@ class Machine:
         ) 
 
         graph = graphviz.Source(graphData) 
-        graph.render(filename='descision_tree_'+self.ratioString+'_max_depth_'+ str(self.maxDepth),format='png',directory="DataCenter")
+        graph.render(filename='descision_tree_'+self.ratioString+'_max_depth_'+ str(self.maxDepth),format='png',directory=DataCenter.treePath)

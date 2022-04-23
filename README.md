@@ -61,7 +61,7 @@ make clean
 ## Preparing the datasets
 
 > ### DataCenter
-> <br> Read data from connect4.data and seperate according to ratio respectively ((`train/test`) `40/60`, `60/40`, `80/20`, and `90/10`)
+> Read data from connect4.data and seperate according to ratio respectively ((`train/test`) `40/60`, `60/40`, `80/20`, and `90/10`)
 > <br> After prepare train and test data. I read lines by lines and convert to form `State`
 
 
@@ -104,22 +104,78 @@ class Machine
 
 ## Evaluating the decision tree classifiers
 
+- [x] Train/Test is 40/60
+    - ### Confusion Matrix: ![](DataCenter/matrix/confusion_matrix_40_60.png)
+    - ### Classification Report: 
+        |                 | precision     |  recall   | f1-score      | support |
+        | ------------    | ---------     | --------- | ------------  | ------  |
+        |  draw           |      0.28     |     0.28  |     0.28      |    3876 |
+        |  loss           |     0.66      |    0.66   |     0.66      |   9942  |
+        |  win            |   0.85        |  0.85     |  0.85         |  26717  |
+        | accuracy        |               |           |  0.75         |  40535  |
+        | macro avg       |  0.60         |   0.60    |  0.60         |  40535  |
+        | weighted avg    |   0.75        |    0.75   |   0.75        |   40535 |   
 
-....
+- [x] Train/Test is 60/40
+    - ### Confusion Matrix: ![](DataCenter/matrix/confusion_matrix_60_40.png)
+    - ### Classification Report: 
+        |                 | precision     |  recall   | f1-score      | support |
+        | ------------    | ---------     | --------- | ------------  | ------  |
+        |  draw           |      0.28     |     0.28  |     0.28      |    3876 |
+        |  loss           |     0.66      |    0.66   |     0.66      |   9942  |
+        |  win            |   0.85        |  0.85     |  0.85         |  26717  |
+        | accuracy        |               |           |  0.75         |  40535  |
+        | macro avg       |  0.60         |   0.60    |  0.60         |  40535  |
+        | weighted avg    |   0.75        |    0.75   |   0.75        |   40535 |    
+
+- [x] Train/Test is 80/20
+    - ### Confusion Matrix: ![](DataCenter/matrix/confusion_matrix_80_20.png)
+    - ### Classification Report: 
+        |                 | precision     |  recall   | f1-score      | support |
+        | ------------    | ---------     | --------- | ------------  | ------  |
+        |  draw           |      0.28     |     0.28  |     0.28      |    3876 |
+        |  loss           |     0.66      |    0.66   |     0.66      |   9942  |
+        |  win            |   0.85        |  0.85     |  0.85         |  26717  |
+        | accuracy        |               |           |  0.75         |  40535  |
+        | macro avg       |  0.60         |   0.60    |  0.60         |  40535  |
+        | weighted avg    |   0.75        |    0.75   |   0.75        |   40535 |    
+
+- [x] Train/Test is 90/10
+    - ### Confusion Matrix: ![](DataCenter/matrix/confusion_matrix_90_10.png)
+    - ### Classification Report: 
+        |                 | precision     |  recall   | f1-score      | support |
+        | ------------    | ---------     | --------- | ------------  | ------  |
+        |  draw           |      0.28     |     0.28  |     0.28      |    3876 |
+        |  loss           |     0.66      |    0.66   |     0.66      |   9942  |
+        |  win            |   0.85        |  0.85     |  0.85         |  26717  |
+        | accuracy        |               |           |  0.75         |  40535  |
+        | macro avg       |  0.60         |   0.60    |  0.60         |  40535  |
+        | weighted avg    |   0.75        |    0.75   |   0.75        |   40535 |                     
+
+
 
 
 ## The depth and accuracy of a decision tree
 > This task works on the 80/20 training set and test set
 
 - [x] Decision Tree
+    - ### Max depth = None ![](DataCenter/tree/descision_tree_80_20_max_depth_38.png)
+    - ### Max depth = 2 ![](DataCenter/tree/descision_tree_80_20_max_depth_2.png)
+    - ### Max depth = 3 ![](DataCenter/tree/descision_tree_80_20_max_depth_3.png)
+    - ### Max depth = 4 ![](DataCenter/tree/descision_tree_80_20_max_depth_4.png)
+    - ### Max depth = 5 ![](DataCenter/tree/descision_tree_80_20_max_depth_5.png)
+    - ### Max depth = 6 ![](DataCenter/tree/descision_tree_80_20_max_depth_6.png)
+    - ### Max depth = 7 ![](DataCenter/tree/descision_tree_80_20_max_depth_7.png)
+
+
 
 - [x] Accuracy table
+    | max_depth | None  | 2     | 3     | 4     | 5     | 6     | 7     |
+    | --------- | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
+    | accuracy  | 0.77 | 0.67 | 0.69 |  0.69 | 0.70 | 0.72 | 0.72 |
 
-| max_depth | None  | 2     | 3     | 4     | 5     | 6     | 7     |
-| --------- | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
-| accuracy  | 0.769 | 0.673 | 0.680 | 0.688 | 0.706 | 0.718 | 0.721 |
-
-- [x] Comment: 
+- [x] Comment: the `accuracy` increase proportionally to the `max_depth`. 
+The higher the `max_depth` is, the higher the `accuracy` is
 
 
 ## Grading

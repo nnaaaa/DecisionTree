@@ -1,6 +1,9 @@
 import random
 from typing import List
 class DataCenter:
+    textPath = "DataCenter/text/"
+    matrixPath = "DataCenter/matrix/"
+    treePath = "DataCenter/tree/"
     label = [
         'C1', ' C2', ' C3', ' C4', ' C5', ' C6', ' C7', 
         ' C8', ' C9', ' C10', ' C11', ' C12', ' C13', 
@@ -16,15 +19,15 @@ class DataCenter:
             random.shuffle(self.data)
 
     def separateIntoRatioAccording(self,ratio:List[int] = [90,10]):
-        trainFile = open("DataCenter/feature_train_"+ str(ratio[0]) + "_" + str(ratio[1]) + ".dat","w")
-        testFile = open("DataCenter/feature_test_"+ str(ratio[0]) + "_" + str(ratio[1]) + ".dat","w")
-        labelTrainFile = open("DataCenter/label_train_"+ str(ratio[0]) + "_" + str(ratio[1]) + ".dat","w")
-        labelTestFile = open("DataCenter/label_test_"+ str(ratio[0]) + "_" + str(ratio[1]) + ".dat","w")
+        trainFile = open(DataCenter.textPath + "feature_train_"+ str(ratio[0]) + "_" + str(ratio[1]) + ".dat","w")
+        testFile = open(DataCenter.textPath +"feature_test_"+ str(ratio[0]) + "_" + str(ratio[1]) + ".dat","w")
+        labelTrainFile = open(DataCenter.textPath +"label_train_"+ str(ratio[0]) + "_" + str(ratio[1]) + ".dat","w")
+        labelTestFile = open(DataCenter.textPath +"label_test_"+ str(ratio[0]) + "_" + str(ratio[1]) + ".dat","w")
 
         splitPosition = int(ratio[0] / 100 * len(self.data))
 
-        trainFile.write(''.join(map(lambda line: line[:84] + '\n',self.data[ :splitPosition])))
-        testFile.write(''.join(map(lambda line: line[:84] + '\n',self.data[splitPosition :])))
+        trainFile.write(''.join(map(lambda line: line[:83] + '\n',self.data[ :splitPosition])))
+        testFile.write(''.join(map(lambda line: line[:83] + '\n',self.data[splitPosition :])))
         labelTrainFile.write(''.join(map(lambda line: line[84:],self.data[ :splitPosition])))
         labelTestFile.write(''.join(map(lambda line: line[84:],self.data[splitPosition :])))
 
