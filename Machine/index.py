@@ -27,6 +27,20 @@ class Machine:
             trainingStates.append(state)
         X = list(map(lambda state: state.state, trainingStates))
         Y = list(map(lambda state: state.result, trainingStates))
+        winLabels = []
+        lossLabels = []
+        drawLabels = []
+        for label in Y:
+            if label == "win":
+                winLabels.append(label)
+            elif label == "loss":
+                lossLabels.append(label)
+            elif label == "draw":
+                drawLabels.append(label)
+        
+        print(" - Win label amount: ",len(winLabels), f"({str(round(len(winLabels)/len(Y)*100,2))}%)")
+        print(" - Loss label amount: ",len(lossLabels), f"({str(round(len(lossLabels)/len(Y)*100,2))}%)")
+        print(" - Draw label amount: ",len(drawLabels), f"({str(round(len(drawLabels)/len(Y)*100,2))}%)")
         self.decisionTree = tree.DecisionTreeClassifier(criterion="gini",max_depth=self.maxDepth).fit(X, Y)
         self.maxDepth = self.decisionTree.tree_.max_depth
         print('Max depth: ', self.maxDepth)
@@ -53,6 +67,7 @@ class Machine:
         print('Plot confusion matrix')
         metrics.ConfusionMatrixDisplay.from_predictions(self.Y_actual, self.Y_predict, labels=self.decisionTree.classes_)
         plot.savefig(DataCenter.matrixPath + 'confusion_matrix_'+self.ratioString)
+        # labels argument is ["win","loss","draw"]
         print(metrics.classification_report(self.Y_actual, self.Y_predict, labels=self.decisionTree.classes_,zero_division=0))
 
     def drawDecisionTree(self):
