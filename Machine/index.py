@@ -41,7 +41,7 @@ class Machine:
         print(" - Win label amount: ",len(winLabels), f"({str(round(len(winLabels)/len(Y)*100,2))}%)")
         print(" - Loss label amount: ",len(lossLabels), f"({str(round(len(lossLabels)/len(Y)*100,2))}%)")
         print(" - Draw label amount: ",len(drawLabels), f"({str(round(len(drawLabels)/len(Y)*100,2))}%)")
-        self.decisionTree = tree.DecisionTreeClassifier(criterion="gini",max_depth=self.maxDepth).fit(X, Y)
+        self.decisionTree = tree.DecisionTreeClassifier(criterion="entropy",max_depth=self.maxDepth).fit(X, Y)
         self.maxDepth = self.decisionTree.tree_.max_depth
         print('Max depth: ', self.maxDepth)
         

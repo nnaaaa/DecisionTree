@@ -174,7 +174,7 @@ than other label because the training data have most `win` label (always account
 > This task works on the 80/20 training set and test set
 
 - [x] Decision Tree
-    - ### Max depth = None ![](DataCenter/tree/descision_tree_80_20_max_depth_38.png)
+    - ### Max depth = None (auto max_depth = 38) ![](DataCenter/tree/descision_tree_80_20_max_depth_38.png)
     - ### Max depth = 2 ![](DataCenter/tree/descision_tree_80_20_max_depth_2.png)
     - ### Max depth = 3 ![](DataCenter/tree/descision_tree_80_20_max_depth_3.png)
     - ### Max depth = 4 ![](DataCenter/tree/descision_tree_80_20_max_depth_4.png)
