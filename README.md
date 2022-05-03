@@ -187,7 +187,7 @@ than other label because the training data have most `win` label (always account
 - [x] Accuracy table
     | max_depth | None  | 2     | 3     | 4     | 5     | 6     | 7     |
     | --------- | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
-    | accuracy  | 0.77 | 0.67 | 0.69 |  0.69 | 0.70 | 0.72 | 0.72 |
+    | accuracy  | 0.770 | 0.666 | 0.670 | 0.680 | 0.688 | 0.696 | 0.702 |
 
 - [x] Comment: the `accuracy` increase proportionally to the `max_depth`. 
 The higher the `max_depth` is, the higher the `accuracy` is. 

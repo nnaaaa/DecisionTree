@@ -5,13 +5,13 @@ class DataCenter:
     matrixPath = "DataCenter/matrix/"
     treePath = "DataCenter/tree/"
     label = [
-        'C1', ' C2', ' C3', ' C4', ' C5', ' C6', ' C7', 
-        ' C8', ' C9', ' C10', ' C11', ' C12', ' C13', 
-        ' C14', ' C15', ' C16', ' C17', ' C18', ' C19', 
-        ' C20', ' C21', ' C22', ' C23', ' C24', ' C25', 
-        ' C26', ' C27', ' C28', ' C29', ' C30', ' C31', 
-        ' C32', ' C33', ' C34', ' C35', ' C36', ' C37', 
-        ' C38', ' C39', ' C40', ' C41', ' C42'
+        'a1', 'a2', 'a3', 'a4', 'a5', 'a6', 
+        'b1', 'b2', 'b3', 'b4', 'b5', 'b6', 
+        'c1', 'c2', 'c3', 'c4', 'c5', 'c6', 
+        'd1', 'd2', 'd3', 'd4', 'd5', 'd6', 
+        'e1', 'e2', 'e3', 'e4', 'e5', 'e6', 
+        'f1', 'f2', 'f3', 'f4', 'f5', 'f6', 
+        'g1', 'g2', 'g3', 'g4', 'g5', 'g6', 
     ]
     def __init__(self,filename: str,isSuffle = True) -> None:
         self.data = DataCenter.readFromFile(filename)

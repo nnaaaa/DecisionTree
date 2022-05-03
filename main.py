@@ -11,18 +11,18 @@ for ratio in ratioList:
     machine.train()
     machine.test()
     machine.plotConfusionMatrix()
-    #machine.drawDecisionTree()
-    print('\n' * 2)
+    machine.drawDecisionTree()
+    print('\n\n')
 
 # run for many max_depth 
-# for i in range(2,8):
-#     dataCenter.separateIntoRatioAccording([80,20])
-#     machine = Machine([80,20],i)
-#     machine.train()
-#     machine.test()
-#     machine.plotConfusionMatrix()
-#     machine.drawDecisionTree()
-#     print('\n\n')
+for i in range(2,8):
+    dataCenter.separateIntoRatioAccording([80,20])
+    machine = Machine([80,20],i)
+    machine.train()
+    machine.test()
+    machine.plotConfusionMatrix()
+    machine.drawDecisionTree()
+    print('\n\n')
 
 
 

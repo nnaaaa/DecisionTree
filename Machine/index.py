@@ -61,7 +61,7 @@ class Machine:
         if self.decisionTree:
             self.Y_predict = self.decisionTree.predict(X) 
             accuracyScore = metrics.accuracy_score(self.Y_actual, self.Y_predict)
-            print('Accuracy: ', accuracyScore)
+            print('Accuracy: ', "{:.3f}".format(accuracyScore))
 
     def plotConfusionMatrix(self):
         print('Plot confusion matrix')
@@ -78,6 +78,7 @@ class Machine:
             max_depth=self.maxDepth,
             feature_names=DataCenter.label,
             decision_tree=self.decisionTree,
+            class_names=self.decisionTree.classes_
         ) 
 
         graph = graphviz.Source(graphData) 
